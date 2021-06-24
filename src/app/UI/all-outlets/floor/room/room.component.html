@@ -10,10 +10,12 @@
 <ng-container *ngIf="isCollapsed===false">
   <ng-container *ngFor="let Outlet of MyOutlets">
     <ng-container [ngSwitch]="Outlet.OUTLET_TYPE_ID">
-        <app-outlet-curtain *ngSwitchCase="3" [Outlet]="Outlet"></app-outlet-curtain>
-        <app-outlet-diming *ngSwitchCase="2" [Outlet]="Outlet"></app-outlet-diming>
-        <app-outlet-digital *ngSwitchCase="1" [Outlet]="Outlet"></app-outlet-digital>
-        <app-outlet-digital *ngSwitchDefault [Outlet]="Outlet"></app-outlet-digital>
+         <ion-row>
+            <app-outlet-curtain *ngSwitchCase="3" [Outlet]="Outlet"></app-outlet-curtain>
+            <app-outlet-diming *ngSwitchCase="2" [Outlet]="Outlet"></app-outlet-diming>
+            <app-outlet-digital *ngSwitchCase="1" [Outlet]="Outlet"></app-outlet-digital>
+            <app-outlet-digital *ngSwitchDefault [Outlet]="Outlet"></app-outlet-digital>
+         </ion-row>
     </ng-container>
   </ng-container>
 </ng-container>
