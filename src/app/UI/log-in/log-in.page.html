@@ -1,0 +1,22 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Autom8</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list lines="full">
+    <ion-item detail="false">
+      <ion-input type="text" placeholder="Username" class="ion-no-padding input" [(ngModel)]="userName"></ion-input>
+    </ion-item>
+    <ion-item detail="false">
+      <ion-input type="password" placeholder="Password" class="ion-no-padding input" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <section>
+      <ion-button expand="block" color="light" (click)="login()">
+        Login
+        <ion-icon name="log-in-outline"></ion-icon>
+      </ion-button>
+    </section>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start">
+      Autom8
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-header [translucent]="true" id="_header" #myHeader>
+  <ion-list class="ion-list-fixed">
+    <ion-item detail="false" class="ion-item-fixed ion-item">
+      <ion-button class="btn-pushed" size="default" color="light">
+        <ion-icon ios="star" md="star-sharp" color="warning"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-grid class="ion-list-pushed ion-grid" id="grid_display_list">
+    <app-floor *ngFor="let Floor of this.functions.data.Floors" [MyRooms]="Floor.MyRooms" [MyName]="Floor.NAME">
+    </app-floor>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,461 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.ion-no-padding-left-right {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.btn-round {
+  border-radius: 30px;
+  --border-radius: 30px;
+}
+
+.ion-no-padding-padding-start {
+  --padding-start: 0;
+}
+
+.ion-no-padding-top {
+  --padding-top: 0;
+}
+
+.section {
+  padding: 10px;
+}
+
+.mini-section {
+  padding: 5px;
+}
+
+.transition {
+  -webkit-transition: ease-out 0.25s;
+  -moz-transition: ease-out 0.25s;
+  -o-transition: ease-out 0.25s;
+  transition: ease-out 0.25s;
+}
+
+.border-radius-5 {
+  border-radius: 5px;
+  --border-radius: 5px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* SCSS HEX */
+$blue-gray: #809bceff;
+$mint: #55b493ff;
+$naples-yellow: #ffde65ff;
+$pale-cerulean: #95b8d1ff;
+$fluorescent-blue: #09ece5ff;
+$queen-pink: #eac4d5ff;
+
+/* SCSS HSL */
+$blue-gray: hsla(219, 44%, 65%, 1);
+$mint: hsla(159, 39%, 52%, 1);
+$naples-yellow: hsla(47, 100%, 70%, 1);
+$pale-cerulean: hsla(205, 39%, 70%, 1);
+$fluorescent-blue: hsla(178, 93%, 48%, 1);
+$queen-pink: hsla(333, 47%, 84%, 1);
+
+/* SCSS RGB */
+$blue-gray: rgba(128, 155, 206, 1);
+$mint: rgba(85, 180, 147, 1);
+$naples-yellow: rgba(255, 222, 101, 1);
+$pale-cerulean: rgba(149, 184, 209, 1);
+$fluorescent-blue: rgba(9, 236, 229, 1);
+$queen-pink: rgba(234, 196, 213, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg,
+  #809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+$gradient-right: linear-gradient(90deg,
+  #809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+$gradient-bottom: linear-gradient(180deg,
+  #809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+$gradient-left: linear-gradient(270deg,
+  #809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+$gradient-top-right: linear-gradient(45deg,
+  #809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+$gradient-bottom-right: linear-gradient(135deg,
+  #809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+$gradient-top-left: linear-gradient(225deg,
+  #809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+$gradient-bottom-left: linear-gradient(315deg,
+  #809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+$gradient-radial: radial-gradient(#809bceff,
+  #55b493ff,
+  #ffde65ff,
+  #95b8d1ff,
+  #09ece5ff,
+  #eac4d5ff);
+
+.remote-ion-popover {
+  --height: fit-content;
+  --width: fit-content;
+  -webkit-transition: all 0.25s 0s ease;
+  -moz-transition: all 0.25s 0s ease;
+  -o-transition: all 0.25s 0s ease;
+  transition: all 0.25s 0s ease;
+  --backdrop-opacity: 0.6;
+  backdrop-filter: blur(2px);
+
+  .popover-content {
+    // height: fit-content;
+    border-radius: 20px;
+    transform-origin: center !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: rgba(128, 128, 128, 0.8) !important;
+    max-height: 95%;
+  }
+
+  .popover-arrow {
+    display: none;
+  }
+}
+
+.text-shadow {
+  text-shadow: 0px 1px 4px black;
+}
+
+@media (prefers-color-scheme: dark) {
+  .collapsible-header {
+    --background-activated: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .ion-item-div {
+    box-shadow: 0 3px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%),
+      0 2px 4px -1px rgb(0 0 0 / 30%);
+  }
+}
+
+.ion-toggle {
+  --background: rgba(10, 10, 10, 0.35);
+  --background-checked: transparent;
+  --border-radius: 20px;
+  width: 37px;
+  height: 37px;
+  --handle-height: 33px;
+  --handle-width: 33px;
+  --handle-spacing: 2px;
+  // Handle
+  --handle-background-checked: rgba(255, 255, 255, 1);
+  --handle-background: rgba(10, 10, 10, 0.35);
+  //--handle-box-shadow:  0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  //------------------
+  overflow: visible;
+  padding: 0;
+  margin: 10px 10px 0 0;
+  border-radius: 20px;
+  -webkit-transition: all 0.25s 0s ease;
+  -moz-transition: all 0.25s 0s ease;
+  -o-transition: all 0.25s 0s ease;
+  transition: all 0.25s 0s ease;
+  //--handle-background-checked: transparent url(/assets/icon/light.png) no-repeat center / contain;
+}
+
+.ion-toggle-all {
+  padding: 0;
+  margin: 0px 20px 0 0;
+}
+
+.ion-toggle.toggle-checked {
+  --handle-box-shadow: 0px 0px 10px 0px rgba(233, 181, 39, 1);
+  box-shadow: 0px 0px 10px 10px rgba(233, 181, 39, 1);
+}
+
+.ion-label {
+  font-size: large !important;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #f4f5f8 !important;
+}
+
+.ion-item {
+  --min-height: 100px;
+  margin: 0;
+  --background: transparent;
+  --inner-padding-start: 0;
+  --padding-start: 5px;
+  --padding-end: 0;
+  --inner-padding-end: 0;
+  --border-color: transparent;
+  border-radius: 15px;
+}
+
+.ion-item-div {
+  --min-height: 100px;
+  margin: 0;
+  border-radius: 15px;
+  --background: transparent;
+  --inner-padding-start: 0;
+  --padding-start: 5px;
+  --padding-end: 0;
+  --inner-padding-end: 0;
+  --border-color: transparent;
+
+  ion-label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0 0 10px;
+  }
+
+  .ion-item-config-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    outline: none;
+    font-size: x-large;
+    color: #f4f5f8 !important;
+  }
+}
+
+.ion-list-fixed {
+  z-index: 2;
+  -webkit-transition: all 0.2s 0s ease-in-out;
+  -moz-transition: all 0.2s 0s ease-in-out;
+  -o-transition: all 0.2s 0s ease-in-out;
+  transition: all 0.2s 0s ease-in-out;
+}
+
+.ion-item-fixed {
+  --min-height: 80px !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.btn-pushed {
+  margin-left: 10px;
+}
+
+.ion-grid {
+  --ion-grid-column-padding: 5px;
+}
+
+.ion-col {
+  // margin: auto;
+  // -webkit-transition: all 0.5s 0s ease-in-out;
+  // -moz-transition: all 0.5s 0s ease-in-out;
+  // -o-transition: all 0.5s 0s ease-in-out;
+  // transition: all 0.5s 0s ease-in-out;
+  height: 50px;
+  ;
+
+  div {
+    border-radius: 15px;
+    height: 100px;
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.25s 0s ease-in-out;
+    -moz-transition: all 0.25s 0s ease-in-out;
+    -o-transition: all 0.25s 0s ease-in-out;
+    transition: all 0.25s 0s ease-in-out;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    word-break: break-word;
+
+    span {
+      text-transform: capitalize;
+    }
+  }
+
+  ion-icon {
+    color: #f4f5f8 !important;
+  }
+}
+
+.light-active {
+  //box-shadow: 0px 0px 10px 5px #e9b527;
+  box-shadow: inset 0px 60px 30px -20px #ffbc00;
+}
+
+.ion-range {
+  padding: 0 15px;
+}
+
+.ion-checkbox {
+  --transition: all 0.35s 0s cubic-bezier(0.22, 0.61, 0, 1);
+  --background: rgba(10, 10, 10, 0.35);
+  --border-color: transparent;
+  --border-color-checked: transparent;
+  // margin: 10px 10px 0 0;
+  -webkit-shadow-box: 0 4px 5px 0 rgb(0 0 0 / 14%),
+    0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%),
+    0 2px 4px -1px rgb(0 0 0 / 30%);
+  --border-width: 0;
+}
+
+.ios {
+  .ion-list-fixed {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .ion-checkbox {
+    border-radius: 20px;
+    --border-radius: 20px;
+    --size: 37px;
+  }
+
+  .fav-edit-btn {
+    float: right;
+    margin: 0;
+  }
+
+  .edit-icon {
+    stroke-width: 8px;
+    --ionicon-stroke-width: 42px;
+  }
+}
+
+.md {
+  @media (prefers-color-scheme: dark) {
+    .ion-list-fixed {
+      background-color: rgb(31 31 31);
+      border-top: 1px solid #313131;
+    }
+  }
+
+  .ion-checkbox {
+    margin-right: 10px;
+    border-radius: 5px;
+    --border-radius: 5px;
+    --checkmark-width: 2px;
+    --size: 33px;
+  }
+
+  .fav-edit-btn {
+    float: right;
+    margin: 0 5px 0 0;
+  }
+}
+
+.remote-shortcuts {
+  height: 100% !important;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  overflow-x: auto;
+
+  ion-button {
+    //color: rgb(34 36 40);
+    // --background: transparent;
+    margin-bottom: 0;
+    height: 35px;
+    //--background-activated: rgba(221, 221, 221, 0.2);
+    -webkit-shadow-box: 0 3px 5px 0 rgb(0 0 0 / 14%),
+      0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+    box-shadow: 0 3px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%),
+      0 2px 4px -1px rgb(0 0 0 / 30%);
+    border-radius: 5px;
+    color: white;
+    margin-right: 5px;
+  }
+
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
+#_header {
+  top: 0;
+  -webkit-transition: ease-out 0.25s;
+  -moz-transition: ease-out 0.25s;
+  -o-transition: ease-out 0.25s;
+  transition: ease-out 0.25s;
+  z-index: 1;
+}

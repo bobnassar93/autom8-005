@@ -1,0 +1,28 @@
+.div-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://magicmockups.com/media/bg/Free-03_960.jpg") center center / cover;
+  height: 100%;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+ion-item {
+  --min-height: 60px;
+}
+
+ion-input {
+  --padding-start: 10px;
+}
+
+section {
+  margin-top: 1em;
+}
+
+section:not(.full-width),
+.full-width>header {
+  padding: 0 10px;
+}
