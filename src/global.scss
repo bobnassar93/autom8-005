@@ -42,6 +42,10 @@
   padding-right: 0;
 }
 
+.bold {
+  font-weight: bold !important;
+}
+
 .no-margin {
   margin: 0;
 }
@@ -325,18 +329,15 @@ $gradient-radial: radial-gradient(#809bceff,
   // -moz-transition: all 0.5s 0s ease-in-out;
   // -o-transition: all 0.5s 0s ease-in-out;
   // transition: all 0.5s 0s ease-in-out;
-  height: 50px;
-  ;
+  height: 50%;
 
   div {
     border-radius: 15px;
-    height: 100px;
     background-repeat: no-repeat;
     -webkit-transition: all 0.25s 0s ease-in-out;
     -moz-transition: all 0.25s 0s ease-in-out;
     -o-transition: all 0.25s 0s ease-in-out;
     transition: all 0.25s 0s ease-in-out;
-    height: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -458,4 +459,54 @@ $gradient-radial: radial-gradient(#809bceff,
   -o-transition: ease-out 0.25s;
   transition: ease-out 0.25s;
   z-index: 1;
+}
+
+.curtain-buttons {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding: 10px 0 10px 10px;
+  overflow-x: auto;
+
+  ion-button {
+    margin-bottom: 0;
+    height: 100%;
+    -webkit-shadow-box: 0 3px 5px 0 rgb(0 0 0 / 14%),
+      0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+    box-shadow: 0 3px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%),
+      0 2px 4px -1px rgb(0 0 0 / 30%);
+    border-radius: 30px !important;
+    --border-radius: 30px !important;
+    color: white;
+    margin-right: 10px;
+  }
+
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
+ion-tab-button.tab-selected.fav {
+  --color-selected: var(--ion-color-warning, #ffc409);
+  --ripple-color: var(--ion-color-warning, #ffc409);
+  --background-focused: var(--ion-color-warning, #ffc409);
+  --color-focused: var(--ion-color-warning, #ffc409);
+}
+
+ion-tab-button.tab-selected.fav:hover {
+  color: var(--ion-color-warning, #ffc409);
+}
+
+ion-tab-button.tab-selected.lights {
+  --color-selected: var(--ion-color-secondary, #3dc2ff);
+  --ripple-color: var(--ion-color-secondary, #3dc2ff);
+  --background-focused: var(--ion-color-secondary, #3dc2ff);
+}
+
+ion-tab-button.tab-selected.settings {
+  --color-selected: var(--ion-color-tertiary, #5260ff);
+  --ripple-color: var(--ion-color-tertiary, #5260ff);
+  --background-focused: var(--ion-color-tertiary, #5260ff);
 }

@@ -1,21 +1,21 @@
 <ion-col size="12">
-  <ion-item detail="false" lines="full" button="true" (click)="toggleCollapse()" class="ion-no-padding-padding-start"
-    style="--background: transparent;">
-    <ion-icon name="chevron-forward-outline" *ngIf="isCollapsed"></ion-icon>
-    <ion-icon name="chevron-down-outline" *ngIf="!isCollapsed"></ion-icon>
+  <ion-item detail="false" lines="inset" button="true" (click)="toggleCollapse()" class="ion-no-padding-padding-start"
+    style="--background: transparent;--padding-start: 15px;">
+    <ion-icon name="add-outline" *ngIf="isCollapsed === true"></ion-icon>
+    <ion-icon name="remove-outline" *ngIf="isCollapsed === false"></ion-icon>
     <ion-label>&nbsp; {{MyName}}</ion-label>
   </ion-item>
 </ion-col>
 
 <ng-container *ngIf="isCollapsed===false">
-  <ng-container *ngFor="let Outlet of MyOutlets">
-    <ng-container [ngSwitch]="Outlet.OUTLET_TYPE_ID">
-         <ion-row>
-            <app-outlet-curtain *ngSwitchCase="3" [Outlet]="Outlet"></app-outlet-curtain>
-            <app-outlet-diming *ngSwitchCase="2" [Outlet]="Outlet"></app-outlet-diming>
-            <app-outlet-digital *ngSwitchCase="1" [Outlet]="Outlet"></app-outlet-digital>
-            <app-outlet-digital *ngSwitchDefault [Outlet]="Outlet"></app-outlet-digital>
-         </ion-row>
-    </ng-container>
-  </ng-container>
+  <ion-row>
+    <ion-col class="transition" size="12" *ngFor="let Outlet of MyOutlets">
+      <ng-container [ngSwitch]="Outlet.OUTLET_TYPE_ID">
+        <app-outlet-curtain *ngSwitchCase="3" [Outlet]="Outlet"></app-outlet-curtain>
+        <app-outlet-diming *ngSwitchCase="2" [Outlet]="Outlet"></app-outlet-diming>
+        <app-outlet-digital *ngSwitchCase="1" [Outlet]="Outlet"></app-outlet-digital>
+        <app-outlet-digital *ngSwitchDefault [Outlet]="Outlet"></app-outlet-digital>
+      </ng-container>
+    </ion-col>
+  </ion-row>
 </ng-container>

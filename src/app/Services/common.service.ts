@@ -11,7 +11,6 @@ export class CommonService {
   public ticket = '';
   Is_Logged_In = new BehaviorSubject<boolean>(false);
   UI_Direction = new BehaviorSubject<string>('ltr');
-
   constructor(public functions: FunctionsService) { }
 
   ShowMessage(message: string, d: number = 1000) {

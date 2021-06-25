@@ -1,12 +1,12 @@
 <ion-col size="12">
     <ion-item detail="false" lines="full" button="true" (click)="toggleCollapse()" class="ion-no-padding-padding-start"
         style="--background: transparent;">
-        <ion-icon name="chevron-forward-outline" *ngIf="isCollapsed"></ion-icon>
-        <ion-icon name="chevron-down-outline" *ngIf="!isCollapsed"></ion-icon>
+        <ion-icon name="chevron-forward-outline" *ngIf="isCollapsed === true"></ion-icon>
+        <ion-icon name="chevron-down-outline" *ngIf="isCollapsed === false"></ion-icon>
         <ion-label>&nbsp; {{MyName}}</ion-label>
     </ion-item>
 </ion-col>
 
-<ng-container *ngIf="isCollapsed===false">
+<ng-container *ngIf="isCollapsed === false">
       <app-room *ngFor="let Room of MyRooms" [MyOutlets]="Room.MyOutlets" [MyName]="Room.NAME"></app-room>
 </ng-container>

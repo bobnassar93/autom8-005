@@ -1,36 +1,29 @@
-<ng-container>
-  <ion-col class="transition" size="12">
-    <div class="ion-item-div" style="background: {{Outlet.UI_Element.COLOR}};">
+<div class="ion-item-div" style="background: {{Outlet.UI_Element.COLOR}};">
 
-      <ion-grid class="ion-no-margin ion-no-padding full-width ion-grid">
-        <ion-row>
-          <!-- Column -->
-          <ion-col size="12" class="ion-col">
-            <!-- Label -->
-            <ion-label class="text-shadow ion-label">{{Outlet.NAME}}
-            </ion-label>
-          </ion-col>
-        </ion-row>
-        <ion-row style="height: 50px;">
-          <ion-col size="10" class="ion-col">
-            <ion-buttons>
-              <ion-button>
-               <ion-icon slot="icon-only" ios="caret-up" md="caret-up-sharp"></ion-icon>
-              </ion-button>
-                 <ion-button >
-                   <ion-icon slot="icon-only" ios="caret-down" md="caret-down-sharp"></ion-icon>
-                 </ion-button>
-            </ion-buttons>
-          </ion-col>
-          <!-- Column -->
-          <ion-col size="2" class="ion-col">
-            <!-- Action plan icon -->
-            <ion-icon class="ion-item-config-icon ion-no-margin pointer" ios="chevron-forward"
-              md="chevron-forward-sharp">
-            </ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </ion-col>
-</ng-container>
+  <ion-grid class="ion-no-margin ion-no-padding full-width ion-grid">
+    <ion-row>
+      <!-- Column -->
+      <ion-col size="10" style="height: 100px;">
+        <!-- Label -->
+        <ion-label class="text-shadow ion-label" style="height: 30%;">{{Outlet.NAME}}
+        </ion-label>
+
+        <ion-buttons class="curtain-buttons" style="height: 70%;">
+          <ion-button fill="clear" class="full-width bold">
+            Open
+            <!-- <ion-icon slot="icon-only" ios="caret-up" md="caret-up-sharp"></ion-icon> -->
+          </ion-button>
+          <ion-button size="small" fill="clear" shape="round" class="full-width bold">
+            Close
+            <!-- <ion-icon slot="icon-only" ios="caret-down" md="caret-down-sharp"></ion-icon> -->
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col size="2" style="height: 100px;">
+        <!-- Action plan icon -->
+        <ion-icon class="ion-item-config-icon ion-no-margin pointer" ios="chevron-forward" md="chevron-forward-sharp">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

@@ -1,0 +1,25 @@
+ion-input[type="color"] {
+  height: 50px;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+ion-input>input {
+  padding: 0;
+  height: 50px;
+}
+
+.preview-item {
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+.ion-item-button {
+  --min-height: 60px;
+
+  button {
+    height: 60px !important;
+  }
+}

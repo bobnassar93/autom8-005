@@ -38,6 +38,7 @@ export class LogInPage implements OnInit {
             if (result.User.IsAuthenticated === true) {
               this.cmv.Is_Logged_In.next(result.User.IsAuthenticated);
               this.cmv.ticket = result.User.Ticket;
+              console.log(this.cmv.Is_Logged_In.value);
               this.functions.colors = result.MyColors;
               this.functions.data = result;
               this.router.navigate(['/outlets']);

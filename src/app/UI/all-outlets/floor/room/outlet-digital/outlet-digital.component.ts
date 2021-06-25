@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Animation, AnimationController } from '@ionic/angular';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { Outlet } from 'src/app/Services/proxy.service';
+
 
 @Component({
   selector: 'app-outlet-digital',
@@ -9,11 +11,21 @@ import { Outlet } from 'src/app/Services/proxy.service';
   styleUrls: ['./outlet-digital.component.scss'],
 })
 export class OutletDigitalComponent implements OnInit {
-
+  @ViewChild('myDiv') myDevRef: ElementRef;
   @Input() Outlet!: Outlet;
+  animation!: Animation;
 
-  constructor(public functions: FunctionsService) { }
+  constructor(public functions: FunctionsService, public animationCtrl: AnimationController) {
 
-  ngOnInit() {}
+  }
 
+  ngOnInit() {
+    this.animation = this.animationCtrl.create()
+      .addElement(this.myDevRef.nativeElement)
+      .duration(1000)
+      .fromTo('opacity', '1', '0.5');
+  }
+  animate(){
+    this.animation.play();
+  }
 }
