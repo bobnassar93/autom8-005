@@ -11,7 +11,7 @@ import { Outlet } from 'src/app/Services/proxy.service';
   styleUrls: ['./outlet-digital.component.scss'],
 })
 export class OutletDigitalComponent implements OnInit {
-  @ViewChild('myDiv') myDevRef: ElementRef;
+  @ViewChild('myDiv', {static: true}) myDevRef: ElementRef;
   @Input() Outlet!: Outlet;
   animation!: Animation;
 
