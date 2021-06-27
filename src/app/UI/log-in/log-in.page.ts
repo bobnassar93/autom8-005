@@ -23,6 +23,9 @@ export class LogInPage implements OnInit {
 
   login() {
     if ((this.userName !== '') && (this.password !== '')) {
+
+      this.functions.showLoader('Logging In, Please Wait...');
+
       const paramsAllData = new Params_Get_All_Data();
       paramsAllData.My_UserInfo = new UserInfo();
       paramsAllData.My_UserInfo.UserName = this.userName;
@@ -34,11 +37,11 @@ export class LogInPage implements OnInit {
 
       this.proxyAllData = this.proxy.Get_All_Data(paramsAllData).subscribe(
         result => {
+          this.functions.dismissLoader();
           if (result != null) {
             if (result.User.IsAuthenticated === true) {
               this.cmv.Is_Logged_In.next(result.User.IsAuthenticated);
               this.cmv.ticket = result.User.Ticket;
-              console.log(this.cmv.Is_Logged_In.value);
               this.functions.colors = result.MyColors;
               this.functions.data = result;
               this.router.navigate(['/outlets']);

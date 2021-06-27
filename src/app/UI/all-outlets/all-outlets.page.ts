@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 import { FunctionsService } from 'src/app/Services/functions.service';
 

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
-import { Room } from 'src/app/Services/proxy.service';
+import { Room, Ui } from 'src/app/Services/proxy.service';
 
 @Component({
   selector: 'app-floor',
@@ -10,6 +10,8 @@ import { Room } from 'src/app/Services/proxy.service';
 export class FloorComponent implements OnInit {
   @Input() MyRooms: Room[] = [];
   @Input() MyName = '';
+  @Input() MyColors: Ui[] = [];
+
   isCollapsed = true;
   constructor() { }
 

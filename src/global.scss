@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -112,68 +112,86 @@ $fluorescent-blue: rgba(9, 236, 229, 1);
 $queen-pink: rgba(234, 196, 213, 1);
 
 /* SCSS Gradient */
-$gradient-top: linear-gradient(0deg,
+$gradient-top: linear-gradient(
+  0deg,
   #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
-$gradient-right: linear-gradient(90deg,
+  #eac4d5ff
+);
+$gradient-right: linear-gradient(
+  90deg,
   #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
-$gradient-bottom: linear-gradient(180deg,
+  #eac4d5ff
+);
+$gradient-bottom: linear-gradient(
+  180deg,
   #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
-$gradient-left: linear-gradient(270deg,
+  #eac4d5ff
+);
+$gradient-left: linear-gradient(
+  270deg,
   #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
-$gradient-top-right: linear-gradient(45deg,
+  #eac4d5ff
+);
+$gradient-top-right: linear-gradient(
+  45deg,
   #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
-$gradient-bottom-right: linear-gradient(135deg,
+  #eac4d5ff
+);
+$gradient-bottom-right: linear-gradient(
+  135deg,
   #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
-$gradient-top-left: linear-gradient(225deg,
+  #eac4d5ff
+);
+$gradient-top-left: linear-gradient(
+  225deg,
   #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
-$gradient-bottom-left: linear-gradient(315deg,
+  #eac4d5ff
+);
+$gradient-bottom-left: linear-gradient(
+  315deg,
   #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
-$gradient-radial: radial-gradient(#809bceff,
+  #eac4d5ff
+);
+$gradient-radial: radial-gradient(
+  #809bceff,
   #55b493ff,
   #ffde65ff,
   #95b8d1ff,
   #09ece5ff,
-  #eac4d5ff);
+  #eac4d5ff
+);
 
 .remote-ion-popover {
   --height: fit-content;
@@ -208,6 +226,18 @@ $gradient-radial: radial-gradient(#809bceff,
 @media (prefers-color-scheme: dark) {
   .collapsible-header {
     --background-activated: #ffffff;
+  }
+
+  .customize {
+    background: #2f2f2f !important;
+    box-shadow: none;
+    .customize-arrow {
+      background: #2f2f2f !important;
+    }
+  }
+
+  .color-palette-button{
+    box-shadow: none !important;
   }
 }
 
@@ -472,7 +502,7 @@ $gradient-radial: radial-gradient(#809bceff,
 
   ion-button {
     margin-bottom: 0;
-    height: 100%;
+    height: 80%;
     -webkit-shadow-box: 0 3px 5px 0 rgb(0 0 0 / 14%),
       0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
     box-shadow: 0 3px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%),
@@ -509,4 +539,41 @@ ion-tab-button.tab-selected.settings {
   --color-selected: var(--ion-color-tertiary, #5260ff);
   --ripple-color: var(--ion-color-tertiary, #5260ff);
   --background-focused: var(--ion-color-tertiary, #5260ff);
+}
+
+.customize {
+  background: #ececec;
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 3px 5px 0 rgb(0 0 0 / 14%), inset 0 1px 10px 0 rgb(0 0 0 / 12%), inset 0 2px 4px -1px rgb(0 0 0 / 30%);
+  .customize-arrow {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #ececec;
+    transform: rotate(45deg) translateX(-50%);
+    margin: 0;
+    display: inline-block;
+    border-radius: 5px;
+  }
+
+  ion-list {
+    background: transparent;
+  }
+}
+
+.color-palette-button {
+  --min-height: 60px;
+  width: 100%;
+  --border-radius: 30px;
+  border-radius: 30px;
+  box-shadow: 0 3px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+  --background-activated: #0003;
+  button {
+    height: 60px !important;
+    width: 100%;
+  }
 }

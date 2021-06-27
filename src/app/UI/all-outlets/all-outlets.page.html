@@ -19,7 +19,7 @@
 </ion-header> -->
 <ion-content [fullscreen]="true">
   <ion-grid class="ion-list-pushed ion-grid" id="grid_display_list">
-    <app-floor *ngFor="let Floor of this.functions.data.Floors" [MyRooms]="Floor.MyRooms" [MyName]="Floor.NAME">
+    <app-floor *ngFor="let Floor of this.functions.data.Floors" [MyRooms]="Floor.MyRooms" [MyName]="Floor.NAME" [MyColors]="this.functions.data.MyColors">
     </app-floor>
   </ion-grid>
 </ion-content>

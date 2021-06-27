@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { All_Data, Ui } from './proxy.service';
 
 @Injectable({
@@ -7,12 +7,12 @@ import { All_Data, Ui } from './proxy.service';
 })
 export class FunctionsService {
 
-  public colors: Ui[] = [];
+  public colors = [];
   public data = new All_Data();
-  private columnCount = 2;
+  public loader;
   private orderType = 'list';
 
-  constructor(public toastController: ToastController) { }
+  constructor(public toastController: ToastController, public loadingController: LoadingController) { }
 
   async presentNotificationToast(message: string = '', duration: number = 2000, color?: string, position?) {
     const toast = await this.toastController.create({
@@ -62,4 +62,23 @@ export class FunctionsService {
       toggle.el.checked = true;
     }
   }
+
+  async showLoader(message = 'Please wait...') {
+    this.loader = await this.loadingController.create({
+      message,
+      translucent: true
+    });
+
+    await this.loader.present();
+  }
+
+  dismissLoader(){
+    this.loader.dismiss();
+  }
+
+  previewColor(color, el) {
+    el.style = `background: ${color.COLOR}`;
+   // this.functions.items[this.index].outlets[this.id].backgroundColor = color;
+  }
+
 }

@@ -1,10 +1,9 @@
-<div class="ion-item-div" style="background: {{Outlet.UI_Element.COLOR}};"
-  (click)="functions.manualToggle($event, myToggle)">
+<div class="ion-item-div transition" [ngStyle]="{'background': Outlet.UI_Element.COLOR}" #previewItem>
 
   <ion-grid class="ion-no-margin ion-no-padding full-width ion-grid">
-    <ion-row>
+    <ion-row (click)="functions.manualToggle($event, myToggle)">
       <!-- Column -->
-      <ion-col size="10" class="ion-col">
+      <ion-col size="10" class="ion-col" (click)="functions.manualToggle($event, myToggle)">
         <!-- Label -->
         <ion-label class="text-shadow ion-label">
           {{Outlet.NAME}}
@@ -19,18 +18,38 @@
         </ion-toggle>
       </ion-col>
     </ion-row>
+
     <ion-row style="height: 50px;">
+      <ion-col size="10" (click)="functions.manualToggle($event, myToggle)"></ion-col>
       <!-- Column -->
-      <ion-col size="2" push="10">
+      <ion-col size="2">
         <!-- Action plan icon -->
-        <ion-icon class="ion-item-config-icon ion-no-margin pointer" ios="chevron-forward" md="chevron-forward-sharp"
-          (click)="animate()">
+        <ion-icon class="ion-item-config-icon ion-no-margin pointer transition" ios="chevron-forward" md="chevron-forward-sharp"
+          (click)="animate($event)">
         </ion-icon>
       </ion-col>
     </ion-row>
   </ion-grid>
 </div>
+<div #myDiv class="customize">
+<div class="customize-arrow">
+</div>
 
-<div #myDiv>
-  <h1>Hello</h1>
+<ion-list>
+  <ion-list-header>
+    <ion-label>
+      Background color
+    </ion-label>
+  </ion-list-header>
+  <ion-grid fixed>
+    <ion-row>
+      <!-- <ion-col sizeXs='3' sizeSm='3' sizeMd='3' sizeLg='4' sizeXl='4' *ngFor="let color of functions.colors"> -->
+      <ion-col size='2' *ngFor="let color of MyColors">
+        <ion-button style="--background: {{color.COLOR}};"
+          (click)="functions.previewColor(color, previewItem)" class="transition color-palette-button">
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-list>
 </div>

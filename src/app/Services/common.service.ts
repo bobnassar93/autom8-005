@@ -13,13 +13,13 @@ export class CommonService {
   UI_Direction = new BehaviorSubject<string>('ltr');
   constructor(public functions: FunctionsService) { }
 
-  ShowMessage(message: string, d: number = 1000) {
-    this.functions.presentNotificationToast(message, d, 'danger');
+  ShowMessage(message: string, d: number = 3000) {
+    this.functions.presentNotificationToast(message, d, 'danger', 'middle');
   }
 
   Handle_Exception(msg) {
     if ((msg != null) && (msg !== '')) {
-      this.ShowMessage(msg, 3000);
+      this.ShowMessage(msg, 5000);
     }
   }
 }
