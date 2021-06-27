@@ -56,7 +56,7 @@
         <ion-grid fixed>
           <ion-row>
             <ion-col size='2' *ngFor="let color of MyColors">
-              <ion-button style="--background: {{color.COLOR}};" (click)="functions.previewColor(color, previewItem)"
+              <ion-button style="--background: {{color.COLOR}};" (click)="functions.previewColor(color, previewItem, MyOutletUI)"
                 class="transition color-palette-button">
               </ion-button>
             </ion-col>

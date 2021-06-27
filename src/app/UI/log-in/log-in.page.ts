@@ -50,7 +50,7 @@ export class LogInPage implements OnInit {
         }
       );
     }else{
-      this.functions.presentNotificationToast('Username and Password are required!', 3000, 'danger', 'top');
+      this.cmv.presentNotificationToast('Username and Password are required!', 3000, 'danger', 'top');
     }
   }
 }

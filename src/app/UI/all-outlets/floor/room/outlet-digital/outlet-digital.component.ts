@@ -4,7 +4,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Animation, AnimationController, IonSlides } from '@ionic/angular';
 import { FunctionsService } from 'src/app/services/functions.service';
-import { Outlet, Ui } from 'src/app/Services/proxy.service';
+import { Outlet, Outlet_ui, Ui } from 'src/app/Services/proxy.service';
 
 
 @Component({
@@ -17,6 +17,8 @@ export class OutletDigitalComponent implements OnInit {
   @ViewChild('myDiv', { static: true }) myDevRef: ElementRef;
   @Input() Outlet!: Outlet;
   @Input() MyColors: Ui[] = [];
+  @Input() MyOutletUI: Outlet_ui;
+
   openAnimation!: Animation;
   closeAnimation!: Animation;
   isOpen = false;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
-import { Room, Ui } from 'src/app/Services/proxy.service';
+import { Outlet_ui, Room, Ui } from 'src/app/Services/proxy.service';
 
 @Component({
   selector: 'app-floor',

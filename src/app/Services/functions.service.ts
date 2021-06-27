@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { LoadingController, ToastController } from '@ionic/angular';
-import { All_Data, Ui } from './proxy.service';
+import { LoadingController } from '@ionic/angular';
+import { CommonService } from './common.service';
+import { All_Data, Outlet_ui, Proxy, Ui } from './proxy.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,18 +16,7 @@ export class FunctionsService {
   };
   private orderType = 'list';
 
-  constructor(public toastController: ToastController, public loadingController: LoadingController) { }
-
-  async presentNotificationToast(message: string = '', duration: number = 2000, color?: string, position?) {
-    const toast = await this.toastController.create({
-      message,
-      duration,
-      color,
-      position
-    });
-
-    toast.present();
-  }
+  constructor(public loadingController: LoadingController, public proxy: Proxy, public cmv: CommonService) { }
 
   manualToggle = (event, toggle?) => {
     if (this.orderType === 'list') {
@@ -75,13 +65,31 @@ export class FunctionsService {
     await this.loader.present();
   }
 
-  dismissLoader(){
+  dismissLoader() {
     this.loader.dismiss();
   }
 
-  previewColor(color, el) {
+  previewColor(color: Ui, el, outletUI: Outlet_ui) {
     el.style = `background: ${color.COLOR}`;
-   // this.functions.items[this.index].outlets[this.id].backgroundColor = color;
+
+    const editOutletUI = new Outlet_ui();
+    editOutletUI.DESCRIPTION = outletUI.DESCRIPTION;
+    editOutletUI.ENTRY_DATE = outletUI.DESCRIPTION;
+    editOutletUI.ENTRY_USER_ID = outletUI.ENTRY_USER_ID;
+    editOutletUI.OUTLET_ID = outletUI.OUTLET_ID;
+    editOutletUI.OUTLET_UI_ID = outletUI.OUTLET_UI_ID;
+    editOutletUI.OWNER_ID = outletUI.OWNER_ID;
+    editOutletUI.USER_ID = outletUI.USER_ID;
+    editOutletUI.UI_ID = color.UI_ID;
+    editOutletUI.My_Outlet = outletUI.My_Outlet;
+    editOutletUI.My_Ui = outletUI.My_Ui;
+    editOutletUI.My_User = outletUI.My_User;
+
+    this.proxy.Edit_Outlet_ui(editOutletUI).subscribe(result => {
+      if (result != null) {
+        this.cmv.presentNotificationToast('Changes Saved Successfully', 3000, 'success');
+      }
+    });
   }
 
 }

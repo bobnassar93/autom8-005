@@ -6,7 +6,11 @@ import { HttpClient, HttpHeaders, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CommonService } from './common.service';
-@Injectable()
+@Injectable(
+  {
+    providedIn: 'root'
+  }
+)
 export class Proxy {
   APIBaseUrl = '';
   url = '';
@@ -98,6 +102,7 @@ export class Outlet {
   My_Hardware_link: Hardware_link;
   My_Room: Room;
   UI_Element: Ui;
+  Outlet_UI: Outlet_ui;
 }
 export class Outlet_type {
   OUTLET_TYPE_ID?: number;
