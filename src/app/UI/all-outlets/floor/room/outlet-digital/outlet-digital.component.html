@@ -24,32 +24,46 @@
       <!-- Column -->
       <ion-col size="2">
         <!-- Action plan icon -->
-        <ion-icon class="ion-item-config-icon ion-no-margin pointer transition" ios="chevron-forward" md="chevron-forward-sharp"
-          (click)="animate($event)">
+        <ion-icon class="ion-item-config-icon ion-no-margin pointer transition" ios="chevron-forward"
+          md="chevron-forward-sharp" (click)="animate($event)">
         </ion-icon>
       </ion-col>
     </ion-row>
   </ion-grid>
 </div>
 <div #myDiv class="customize">
-<div class="customize-arrow">
-</div>
+  <div class="customize-arrow">
+  </div>
 
-<ion-list>
-  <ion-list-header>
-    <ion-label>
-      Background color
-    </ion-label>
-  </ion-list-header>
-  <ion-grid fixed>
-    <ion-row>
-      <!-- <ion-col sizeXs='3' sizeSm='3' sizeMd='3' sizeLg='4' sizeXl='4' *ngFor="let color of functions.colors"> -->
-      <ion-col size='2' *ngFor="let color of MyColors">
-        <ion-button style="--background: {{color.COLOR}};"
-          (click)="functions.previewColor(color, previewItem)" class="transition color-palette-button">
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-list>
+  <ion-list>
+    <ion-slides pager="true" [options]="functions.customiationSlideOpts">
+      <ion-slide>
+        <ion-list-header class="ion-no-padding">
+          <ion-label>
+            Background color
+          </ion-label>
+        </ion-list-header>
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size='2' *ngFor="let color of MyColors">
+              <ion-button style="--background: {{color.COLOR}};" (click)="functions.previewColor(color, previewItem)"
+                class="transition color-palette-button">
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-list-header class="ion-no-padding">
+          <ion-label>
+            Outlet Name
+          </ion-label>
+        </ion-list-header>
+        <ion-item detail="false" lines="none">
+          <ion-input [(ngModel)]="Outlet.NAME" autocapitalize="on" clearInput="true"></ion-input>
+        </ion-item>
+      </ion-slide>
+    </ion-slides>
+  </ion-list>
 </div>

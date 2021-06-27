@@ -24,14 +24,14 @@ export class OutletDimingComponent implements OnInit {
   ngOnInit() {
     this.openAnimation = this.animationCtrl.create()
       .addElement(this.myDevRef.nativeElement)
-      .duration(500)
+      .duration(150)
       .fromTo('height', '0', 'max-content')
       .fromTo('overflow', 'hidden', 'visible')
       .fromTo('marginTop', '0', '20px');
 
     this.closeAnimation = this.animationCtrl.create()
       .addElement(this.myDevRef.nativeElement)
-      .duration(500)
+      .duration(150)
       .fromTo('height', 'max-content', '0')
       .fromTo('overflow', 'visible', 'hidden')
       .fromTo('marginTop', '20px', '0');

@@ -9,10 +9,10 @@
 <ion-content fullscreen>
   <ion-list lines="full">
     <ion-item detail="false">
-      <ion-input type="text" placeholder="Username" class="ion-no-padding input" [(ngModel)]="userName"></ion-input>
+      <ion-input type="text" placeholder="Username" class="ion-no-padding input" [(ngModel)]="userName" clearInput="true"></ion-input>
     </ion-item>
     <ion-item detail="false">
-      <ion-input type="password" placeholder="Password" class="ion-no-padding input" [(ngModel)]="password"></ion-input>
+      <ion-input type="password" placeholder="Password" class="ion-no-padding input" [(ngModel)]="password" clearInput="true"></ion-input>
     </ion-item>
     <section>
       <ion-button expand="block" size="default" color="light" (click)="login()">

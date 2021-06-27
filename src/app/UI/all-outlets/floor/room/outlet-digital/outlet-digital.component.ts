@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
+/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Animation, AnimationController } from '@ionic/angular';
+import { Animation, AnimationController, IonSlides } from '@ionic/angular';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { Outlet, Ui } from 'src/app/Services/proxy.service';
 
@@ -26,14 +28,14 @@ export class OutletDigitalComponent implements OnInit {
   ngOnInit() {
     this.openAnimation = this.animationCtrl.create()
       .addElement(this.myDevRef.nativeElement)
-      .duration(500)
+      .duration(150)
       .fromTo('height', '0', 'max-content')
       .fromTo('overflow', 'hidden', 'visible')
       .fromTo('marginTop', '0', '20px');
 
     this.closeAnimation = this.animationCtrl.create()
       .addElement(this.myDevRef.nativeElement)
-      .duration(500)
+      .duration(150)
       .fromTo('height', 'max-content', '0')
       .fromTo('overflow', 'visible', 'hidden')
       .fromTo('marginTop', '20px', '0');
@@ -53,4 +55,5 @@ export class OutletDigitalComponent implements OnInit {
       });
     }
   }
+
 }

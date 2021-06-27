@@ -10,6 +10,9 @@ export class FunctionsService {
   public colors = [];
   public data = new All_Data();
   public loader;
+  public customiationSlideOpts = {
+    loop: true
+  };
   private orderType = 'list';
 
   constructor(public toastController: ToastController, public loadingController: LoadingController) { }
