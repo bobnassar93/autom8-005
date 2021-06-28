@@ -11,10 +11,10 @@
   <ion-row>
     <ion-col class="transition" size="12" *ngFor="let Outlet of MyOutlets">
       <ng-container [ngSwitch]="Outlet.OUTLET_TYPE_ID">
-        <app-outlet-curtain *ngSwitchCase="3" [Outlet]="Outlet" [MyColors]="this.MyColors" [MyOutletUI]="Outlet.Outlet_UI"></app-outlet-curtain>
-        <app-outlet-diming *ngSwitchCase="2" [Outlet]="Outlet" [MyColors]="this.MyColors" [MyOutletUI]="Outlet.Outlet_UI"></app-outlet-diming>
-        <app-outlet-digital *ngSwitchCase="1" [Outlet]="Outlet" [MyColors]="this.MyColors" [MyOutletUI]="Outlet.Outlet_UI"></app-outlet-digital>
-        <app-outlet-digital *ngSwitchDefault [Outlet]="Outlet" [MyColors]="this.MyColors" [MyOutletUI]="Outlet.Outlet_UI"></app-outlet-digital>
+        <app-outlet-curtain *ngSwitchCase="3" [Outlet]="Outlet" [MyColors]="this.MyColors" [MyOutletUI]="Outlet.My_Outlet_Ui"></app-outlet-curtain>
+        <app-outlet-diming *ngSwitchCase="2" [Outlet]="Outlet" [MyColors]="this.MyColors" [MyOutletUI]="Outlet.My_Outlet_Ui"></app-outlet-diming>
+        <app-outlet-digital *ngSwitchCase="1" [Outlet]="Outlet" [MyColors]="this.MyColors" [MyOutletUI]="Outlet.My_Outlet_Ui"></app-outlet-digital>
+        <app-outlet-digital *ngSwitchDefault [Outlet]="Outlet" [MyColors]="this.MyColors" [MyOutletUI]="Outlet.My_Outlet_Ui"></app-outlet-digital>
       </ng-container>
     </ion-col>
   </ion-row>

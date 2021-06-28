@@ -8,7 +8,7 @@ import { All_Data, Outlet_ui, Proxy, Ui } from './proxy.service';
 })
 export class FunctionsService {
 
-  public colors = [];
+  public colors: Ui[] = [];
   public data = new All_Data();
   public loader;
   public customiationSlideOpts = {
@@ -30,10 +30,6 @@ export class FunctionsService {
         event.target.parentElement.classList.toggle('light-active');
       }
     }
-  };
-
-  toggleLight = (item, toggle?): void => {
-    console.log(item, toggle);
   };
 
   changeDimmingValue(event, toggle?) {
@@ -73,17 +69,7 @@ export class FunctionsService {
     el.style = `background: ${color.COLOR}`;
 
     const editOutletUI = new Outlet_ui();
-    editOutletUI.DESCRIPTION = outletUI.DESCRIPTION;
-    editOutletUI.ENTRY_DATE = outletUI.DESCRIPTION;
-    editOutletUI.ENTRY_USER_ID = outletUI.ENTRY_USER_ID;
-    editOutletUI.OUTLET_ID = outletUI.OUTLET_ID;
-    editOutletUI.OUTLET_UI_ID = outletUI.OUTLET_UI_ID;
-    editOutletUI.OWNER_ID = outletUI.OWNER_ID;
-    editOutletUI.USER_ID = outletUI.USER_ID;
     editOutletUI.UI_ID = color.UI_ID;
-    editOutletUI.My_Outlet = outletUI.My_Outlet;
-    editOutletUI.My_Ui = outletUI.My_Ui;
-    editOutletUI.My_User = outletUI.My_User;
 
     this.proxy.Edit_Outlet_ui(editOutletUI).subscribe(result => {
       if (result != null) {

@@ -1,25 +1,28 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Animation, AnimationController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { FunctionsService } from 'src/app/services/functions.service';
-import { Outlet, Outlet_ui, Ui } from 'src/app/Services/proxy.service';
+import { Outlet, Outlet_ui, Proxy, Ui } from 'src/app/Services/proxy.service';
 
 @Component({
   selector: 'app-outlet-curtain',
   templateUrl: './outlet-curtain.component.html',
   styleUrls: ['./outlet-curtain.component.scss'],
 })
-export class OutletCurtainComponent implements OnInit {
+export class OutletCurtainComponent implements OnInit, OnDestroy {
   @ViewChild('myDiv', { static: true }) myDevRef: ElementRef;
   @Input() Outlet!: Outlet;
   @Input() MyColors: Ui[] = [];
   @Input() MyOutletUI: Outlet_ui;
 
+  paramsEditOutlet: Outlet;
+  proxyEditOutlet: Subscription;
   openAnimation!: Animation;
   closeAnimation!: Animation;
   isOpen = false;
 
-  constructor(public functions: FunctionsService, public animationCtrl: AnimationController) {
+  constructor(public functions: FunctionsService, public animationCtrl: AnimationController, public proxy: Proxy) {
 
   }
 
@@ -37,7 +40,15 @@ export class OutletCurtainComponent implements OnInit {
       .fromTo('height', 'max-content', '0')
       .fromTo('overflow', 'visible', 'hidden')
       .fromTo('marginTop', '20px', '0');
+
+    this.paramsEditOutlet = new Outlet();
+    this.paramsEditOutlet = this.Outlet;
   }
+
+  ngOnDestroy(): void{
+    this.proxyEditOutlet.unsubscribe();
+  }
+
   animate(ev) {
     if (this.isOpen === true) {
       this.isOpen = false;
@@ -52,5 +63,10 @@ export class OutletCurtainComponent implements OnInit {
         this.closeAnimation.stop();
       });
     }
+  }
+
+  toggleLight(value: number): void{
+    this.paramsEditOutlet.CURRENT_VALUE = value + '';
+    this.proxyEditOutlet = this.proxy.Edit_Outlet(this.paramsEditOutlet).subscribe();
   }
 }

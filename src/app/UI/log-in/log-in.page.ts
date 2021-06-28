@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { CommonService } from 'src/app/services/common.service';
 import { FunctionsService } from 'src/app/Services/functions.service';
-import { Params_Get_All_Data, Proxy, UserInfo } from 'src/app/Services/proxy.service';
+import { Params_Get_All_Data, Proxy, Ui, UserInfo } from 'src/app/Services/proxy.service';
 
 @Component({
   selector: 'app-log-in',

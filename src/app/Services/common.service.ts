@@ -2,11 +2,13 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
-  public APIUrl = 'http://localhost:5000/api/Data';
+  public signalRUrl = 'https://localhost:5001/RealTimeData';
+  public APIUrl = 'https://localhost:5001/api/Data';
   public ticket = '';
   Is_Logged_In = new BehaviorSubject<boolean>(false);
   UI_Direction = new BehaviorSubject<string>('ltr');

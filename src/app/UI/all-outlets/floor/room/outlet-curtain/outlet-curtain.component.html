@@ -31,7 +31,6 @@
 <div #myDiv class="customize">
   <div class="customize-arrow">
   </div>
-  
   <ion-list>
     <ion-slides pager="true" [options]="functions.customiationSlideOpts">
       <ion-slide>
@@ -49,17 +48,6 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-list-header class="ion-no-padding">
-          <ion-label>
-            Outlet Name
-          </ion-label>
-        </ion-list-header>
-        <ion-item detail="false" lines="none">
-          <ion-input [(ngModel)]="Outlet.NAME" autocapitalize="on" clearInput="true"></ion-input>
-        </ion-item>
       </ion-slide>
     </ion-slides>
   </ion-list>
