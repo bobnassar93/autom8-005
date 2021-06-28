@@ -7,9 +7,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CommonService } from './common.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class Proxy {
   APIBaseUrl = '';
   url = '';

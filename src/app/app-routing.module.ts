@@ -4,13 +4,13 @@ import { RouterGuardService } from './Services/router-guard.service';
 
 const routes: Routes = [
   {
-    path: 'Log-in',
-    loadChildren: () => import('./UI/log-in/log-in.module').then(m => m.LogInPageModule)
-  },
-  {
     path: '',
     redirectTo: 'Log-in',
     pathMatch: 'full'
+  },
+  {
+    path: 'Log-in',
+    loadChildren: () => import('./UI/log-in/log-in.module').then(m => m.LogInPageModule)
   },
   {
     path: 'settings',
@@ -19,18 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'outlets',
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./UI/all-outlets/all-outlets.module').then(m => m.AllOutletsPageModule),
-        canActivate: [RouterGuardService]
-      },
-      {
-        path: ':OutletId',
-        loadChildren: () => import('./UI/all-outlets/customize/customize.module').then(m => m.CustomizePageModule),
-        canActivate: [RouterGuardService]
-      }
-    ]
+    loadChildren: () => import('./UI/all-outlets/all-outlets.module').then(m => m.AllOutletsPageModule),
+    canActivate: [RouterGuardService]
   },
 ];
 

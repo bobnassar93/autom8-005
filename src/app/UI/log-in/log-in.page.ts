@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { LoadingController } from '@ionic/angular';
+import {  Subscription } from 'rxjs';
 import { CommonService } from 'src/app/services/common.service';
 import { FunctionsService } from 'src/app/Services/functions.service';
 import { Params_Get_All_Data, Proxy, Ui, UserInfo } from 'src/app/Services/proxy.service';
@@ -15,16 +16,30 @@ export class LogInPage implements OnInit {
   proxyAllData: Subscription;
   public userName = '';
   public password = '';
+  public loader;
 
-  constructor(public proxy: Proxy, public functions: FunctionsService, public cmv: CommonService, public router: Router) { }
+  constructor(public proxy: Proxy, public functions: FunctionsService, public cmv: CommonService, public router: Router, public loadingController: LoadingController) { }
 
   ngOnInit() {
+  }
+
+  async showLoader(message = 'Please wait...') {
+    this.loader = await this.loadingController.create({
+      message,
+      translucent: true
+    });
+
+    await this.loader.present();
+  }
+
+  dismissLoader() {
+    this.loader.dismiss();
   }
 
   login() {
     if ((this.userName !== '') && (this.password !== '')) {
 
-      this.functions.showLoader('Logging In, Please Wait...');
+      this.showLoader('Logging In, Please Wait...');
 
       const paramsAllData = new Params_Get_All_Data();
       paramsAllData.My_UserInfo = new UserInfo();
@@ -37,7 +52,7 @@ export class LogInPage implements OnInit {
 
       this.proxyAllData = this.proxy.Get_All_Data(paramsAllData).subscribe(
         result => {
-          this.functions.dismissLoader();
+          this.dismissLoader();
           if (result != null) {
             if (result.User.IsAuthenticated === true) {
               this.cmv.Is_Logged_In.next(result.User.IsAuthenticated);

@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Animation, AnimationController } from '@ionic/angular';
+import * as signalR from '@microsoft/signalr';
+import { Subscription } from 'rxjs';
+import { CommonService } from 'src/app/services/common.service';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { Outlet, Outlet_ui, Ui } from 'src/app/Services/proxy.service';
 
@@ -9,18 +12,24 @@ import { Outlet, Outlet_ui, Ui } from 'src/app/Services/proxy.service';
   templateUrl: './outlet-diming.component.html',
   styleUrls: ['./outlet-diming.component.scss'],
 })
-export class OutletDimingComponent implements OnInit {
+export class OutletDimingComponent implements OnInit, OnDestroy {
   @ViewChild('myDiv', { static: true }) myDevRef: ElementRef;
   @Input() Outlet!: Outlet;
   @Input() MyColors: Ui[] = [];
   @Input() MyOutletUI: Outlet_ui;
-
+  proxyEditOutlet: Subscription;
   openAnimation!: Animation;
   closeAnimation!: Animation;
   isOpen = false;
+  private hubConnection: signalR.HubConnection;
 
-  constructor(public functions: FunctionsService, public animationCtrl: AnimationController) {
+  constructor(public functions: FunctionsService, public animationCtrl: AnimationController, private cmv: CommonService) {
 
+  }
+  ngOnDestroy(): void {
+    if (this.proxyEditOutlet) {
+      this.proxyEditOutlet.unsubscribe();
+    }
   }
 
   ngOnInit() {
@@ -52,6 +61,22 @@ export class OutletDimingComponent implements OnInit {
         this.closeAnimation.stop();
       });
     }
+  }
+
+  public startConnection = () => {
+    this.hubConnection = new signalR.HubConnectionBuilder()
+      .withUrl(this.cmv.signalRUrl)
+      .build();
+    this.hubConnection.start().then(() => {
+      console.log('SignalR Connection Started');
+    }).catch(err => console.log('Error while starting connection: ' + err));
+  }
+
+  public realTimeData = () => {
+    this.hubConnection.on('updatedOutlet', (data) => {
+      this.Outlet = data;
+      console.log(data);
+    });
   }
 
 }

@@ -56,7 +56,9 @@ export class OutletDigitalComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.proxyEditOutlet.unsubscribe();
+    if (this.proxyEditOutlet){
+      this.proxyEditOutlet.unsubscribe();
+    }
   }
 
   animate(ev) {

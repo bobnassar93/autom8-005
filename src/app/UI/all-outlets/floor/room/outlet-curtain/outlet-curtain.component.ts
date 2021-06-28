@@ -46,7 +46,9 @@ export class OutletCurtainComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void{
-    this.proxyEditOutlet.unsubscribe();
+    if (this.proxyEditOutlet) {
+      this.proxyEditOutlet.unsubscribe();
+    }
   }
 
   animate(ev) {

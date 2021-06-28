@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
-import { CommonService } from './common.service';
-import { All_Data, Outlet_ui, Proxy, Ui } from './proxy.service';
+import { All_Data, Outlet_ui, Ui } from './proxy.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +8,13 @@ export class FunctionsService {
 
   public colors: Ui[] = [];
   public data = new All_Data();
-  public loader;
   public customiationSlideOpts = {
     loop: true
   };
   private orderType = 'list';
 
-  constructor(public loadingController: LoadingController, public proxy: Proxy, public cmv: CommonService) { }
+  constructor() {
+   }
 
   manualToggle = (event, toggle?) => {
     if (this.orderType === 'list') {
@@ -52,30 +50,17 @@ export class FunctionsService {
     }
   }
 
-  async showLoader(message = 'Please wait...') {
-    this.loader = await this.loadingController.create({
-      message,
-      translucent: true
-    });
-
-    await this.loader.present();
-  }
-
-  dismissLoader() {
-    this.loader.dismiss();
-  }
-
   previewColor(color: Ui, el, outletUI: Outlet_ui) {
     el.style = `background: ${color.COLOR}`;
 
     const editOutletUI = new Outlet_ui();
     editOutletUI.UI_ID = color.UI_ID;
 
-    this.proxy.Edit_Outlet_ui(editOutletUI).subscribe(result => {
-      if (result != null) {
-        this.cmv.presentNotificationToast('Changes Saved Successfully', 3000, 'success');
-      }
-    });
+    // this.proxy.Edit_Outlet_ui(editOutletUI).subscribe(result => {
+    //   if (result != null) {
+    //     this.cmv.presentNotificationToast('Changes Saved Successfully', 3000, 'success');
+    //   }
+    // });
   }
 
 }

@@ -5,6 +5,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CommonService } from './Services/common.service';
+import { FunctionsService } from './Services/functions.service';
+import { Proxy } from './Services/proxy.service';
 import { RouterGuardService } from './Services/router-guard.service';
 import { InterceptorService } from './Services/interceptor.service';
 
@@ -13,13 +16,16 @@ import { InterceptorService } from './Services/interceptor.service';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    CommonService,
+    FunctionsService,
+    Proxy,
     RouterGuardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
       multi: true
     },
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ],
   bootstrap: [AppComponent],
 })
