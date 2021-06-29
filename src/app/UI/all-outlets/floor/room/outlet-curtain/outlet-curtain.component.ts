@@ -3,7 +3,7 @@ import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@ang
 import { Animation, AnimationController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { FunctionsService } from 'src/app/services/functions.service';
-import { Outlet, Outlet_ui, Proxy, Ui } from 'src/app/Services/proxy.service';
+import { Outlet, Outlet_ui, Proxy, Ui } from 'src/app/services/proxy.service';
 
 @Component({
   selector: 'app-outlet-curtain',

@@ -5,7 +5,7 @@ import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@ang
 import { Animation, AnimationController, IonSlides } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { FunctionsService } from 'src/app/services/functions.service';
-import { Outlet, Outlet_ui, Ui, Proxy } from 'src/app/Services/proxy.service';
+import { Outlet, Outlet_ui, Ui, Proxy } from 'src/app/services/proxy.service';
 import * as signalR from '@microsoft/signalr';
 import { CommonService } from 'src/app/services/common.service';
 

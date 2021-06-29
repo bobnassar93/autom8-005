@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
-import { CommonService } from '../services/common.service';
+import { CommonService } from './common.service';
 import { Router } from '@angular/router';
 
 @Injectable()

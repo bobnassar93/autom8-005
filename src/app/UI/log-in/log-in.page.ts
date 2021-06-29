@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import {  Subscription } from 'rxjs';
 import { CommonService } from 'src/app/services/common.service';
-import { FunctionsService } from 'src/app/Services/functions.service';
-import { Params_Get_All_Data, Proxy, Ui, UserInfo } from 'src/app/Services/proxy.service';
+import { FunctionsService } from 'src/app/services/functions.service';
+import { Params_Get_All_Data, Proxy, Ui, UserInfo } from 'src/app/services/proxy.service';
 
 @Component({
   selector: 'app-log-in',

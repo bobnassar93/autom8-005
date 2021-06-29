@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, Input, OnInit } from '@angular/core';
-import { Outlet, Outlet_ui, Ui } from 'src/app/Services/proxy.service';
+import { Outlet, Outlet_ui, Ui } from 'src/app/services/proxy.service';
 
 @Component({
   selector: 'app-room',

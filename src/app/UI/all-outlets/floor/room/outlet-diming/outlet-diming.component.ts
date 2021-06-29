@@ -5,7 +5,7 @@ import * as signalR from '@microsoft/signalr';
 import { Subscription } from 'rxjs';
 import { CommonService } from 'src/app/services/common.service';
 import { FunctionsService } from 'src/app/services/functions.service';
-import { Outlet, Outlet_ui, Ui } from 'src/app/Services/proxy.service';
+import { Outlet, Outlet_ui, Ui } from 'src/app/services/proxy.service';
 
 @Component({
   selector: 'app-outlet-diming',
